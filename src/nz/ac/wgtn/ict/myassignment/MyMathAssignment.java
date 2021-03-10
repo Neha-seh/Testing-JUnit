@@ -84,33 +84,6 @@ class MyMathAssignment {
 	}
 
 	
-	/**
-	 * This function will return the product of a matrix and vector
-	 * 
-	 * @param rows   : for the rows of the matrix
-	 * @param column : for the columns of the matrix
-	 * @return result the products of matrix and vector
-	 */
-
-	public double[] MatrixVectorProduct(double[][] matrix, double[] vector) {
-	
-			int rows = matrix.length;  //rows length,
-			int columns = matrix[0].length;  //column length,
-
-			 if (vector.length != columns) throw new RuntimeException("Illegal matrix dimensions.");
-			 
-			double[] result = new double[rows];
-
-			for (int i = 0; i < rows; i++) { // for every index value in the rows of the matrix
-				double temp = 0;
-				for (int j = 0; j < columns; j++) { // get each index value in each column and...
-					 result[i] += Math.round((matrix[i][j] * vector[j]) * 100000) / 100000.0; // Multiply by the vector, which only has 1 column
-					
-				}
-			}
-			return result ;
-
-	}
 	
 	
 	/**

@@ -94,23 +94,6 @@ class MyMathAssignmentTest {
 
 	
 	
-	//-----------------------------------Matrix and vector Product----------------------
-	
-	static Stream<Arguments> matrixVectorProductTestData() {
-		return Stream.of(Arguments.of(new double[][] {{2,2,4},{0}}, new double[] {2,0,3}, new double[] {16, 3}),
-				Arguments.of(new double[][] {{3, 4, 2},{1, 3, 1}}, new double[] {4, 7, 1}, new double[] {42,26}), 
-				Arguments.of(new double[][] {{0, 4,-2},{-4, -3, 1}}, new double[] {2, -1, 0}, new double[] {-4, -5}));
-			
-	}
-
-	@ParameterizedTest
-	@MethodSource("matrixVectorProductTestData")
-	public void MatrixVectorTest1(double[][] v1, double[] v2, double[] exp) {
-	
-				assertArrayEquals(exp, ma.MatrixVectorProduct(v1,v2),
-						"This method is not working");
-			
-	}
 
 	//------------------------------------------Matrix and Matrix product----------------------
 	
