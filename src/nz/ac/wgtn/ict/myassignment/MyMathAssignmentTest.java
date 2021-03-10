@@ -93,13 +93,38 @@ class MyMathAssignmentTest {
 	}
 
 	
+
+	//-----------------------------------Matrix and vector Product----------------------
 	
+	static Stream<Arguments> matrixVectorProductTestData() {
+		return Stream.of(Arguments.of(new double[][] {{1,2},{3,4}}, new double[] {1,2,3,4}, new double[] {5,11,15,22}),
+				Arguments.of(new double[][] {{3, 4, 2},{1, 3, 1}}, new double[] {4, 7, 1}, new double[] {42,26}), 
+				Arguments.of(new double[][] {{0, 4,-2},{-4, -3, 1}}, new double[] {2, -1, 0}, new double[] {-4, -5}));
+			
+	}
+
+	@ParameterizedTest
+	@MethodSource("matrixVectorProductTestData")
+	public void MatrixVectorTest1(double[][] v1, double[] v2, double[] exp) {
+	
+		try {
+				assertArrayEquals(exp, ma.MatrixVectorProduct(v1,v2),
+						"This method is not working");
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+
 
 	//------------------------------------------Matrix and Matrix product----------------------
 	
 	static Stream<Arguments> multiplyTwoMatrixTestData() {
 		return Stream.of(Arguments.of(new double[][] {{1,2,3},{4,5,6}}, new double[][] {{7,8},{9,10}, {11,12}}, new double[][] {{58, 64}, {139, 154}}),
-				Arguments.of(new double[][] {{3.3, 4.3},{-1.1, 1.7}}, new double[][] {{4, 7},{2.2, -1.9}}, new double[][]{ {22.66, 14.93}, {7.5, -5.65}})); 
+				Arguments.of(new double[][] {{-1,-2},{-3,-4}},new double[][] {{-1,-2},{-3,-4}}, new double[][] {{7,10},{15,22}}),
+				Arguments.of(new double[][]{{0,0},{0,0}}, new double[][] {{0,0},{0,0}}, new double[][]{{0,0},{0,0}})); 
 	
 	}
 
